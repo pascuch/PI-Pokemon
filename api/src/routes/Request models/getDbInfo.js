@@ -20,10 +20,12 @@ const getDbInfo = async () => {
                 attack: e.dataValues.attack,
                 defense: e.dataValues.defense,
                 speed: e.dataValues.speed,
-                types: e.dataValues.types,
+                types: e.dataValues.types.map(e => e.name),
+                createdInDb: e.dataValues.createdInDb
                }
     })
 
+    console.log(infoDb)
     return infoDb
 }
 

@@ -1,11 +1,18 @@
 import './App.css';
 
-function App() {
+import React from 'react';
+import {Route, Routes} from 'react-router-dom';
+import LandingPage from './components/LandingPage.jsx';
+import Home from './components/Home.jsx'
+
+export default function App() {
   return (
-    <div className="App">
-      <h1>Henry Pokemon</h1>
-    </div>
+    <React.Fragment>
+      <Routes>
+        <Route path='/' element={<LandingPage />}/>
+        <Route path='/home' element={<Home />} />
+      </Routes>
+    </React.Fragment>
   );
 }
 
-export default App;

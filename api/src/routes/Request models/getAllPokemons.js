@@ -6,7 +6,7 @@ const getAllPokemons = async () => {
     const db = await getDbInfo();
     const all = api.concat(db);
 
-    console.log(all)
+    // console.log(all)
     return all;
 } 
 

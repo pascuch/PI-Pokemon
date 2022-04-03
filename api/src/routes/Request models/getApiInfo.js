@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const getApiInfo = async () => {
     const allPoke = []
-    const limit = 10 
+    const limit = 40
 
     const apiUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
     const apiInfo = await apiUrl.data.results.map(e => {
@@ -24,10 +24,11 @@ const getApiInfo = async () => {
                             speed: pokeInfo.stats.find(e => e.stat.name === 'speed').base_stat,
                             types: pokeInfo.types.map(e => e.type.name),
                             img: pokeInfo.sprites.front_default,
+                            createdInDb: false
                         }
         
         return allPoke.push(pokeData)
-    }
+    } 
 
     const promises = apiInfo.map(p => subRequest(p));
     await Promise.all(promises)
