@@ -1,0 +1,10 @@
+.div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-content: center;
+    padding: 240px 50px 100px 50px;
+    /* padding-left: 1%; */
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 25px;
+}

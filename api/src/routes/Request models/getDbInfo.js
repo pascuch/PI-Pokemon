@@ -20,6 +20,7 @@ const getDbInfo = async () => {
                 attack: e.dataValues.attack,
                 defense: e.dataValues.defense,
                 speed: e.dataValues.speed,
+                img: e.dataValues.img,
                 types: e.dataValues.types.map(e => e.name),
                 createdInDb: e.dataValues.createdInDb
                }

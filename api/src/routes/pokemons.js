@@ -20,7 +20,7 @@ router.get('', async (req, res) => {
                                 defense: pokemon.data.stats.find(e => e.stat.name === 'defense').base_stat,
                                 speed: pokemon.data.stats.find(e => e.stat.name === 'speed').base_stat,
                                 types: pokemon.data.types.map(e => e.type.name),
-                                img: pokemon.data.sprites.front_default,
+                                img: pokemon.data.sprites.other.home.front_default,
                             }
             // console.log(typeof id)
            res.send(pokeData)
@@ -43,7 +43,8 @@ router.get('', async (req, res) => {
                     attack: pokeDb.dataValues.attack,
                     defense: pokeDb.dataValues.defense,
                     speed: pokeDb.dataValues.speed,
-                    type: pokeDb.dataValues.types.map(e => e.dataValues.name),
+                    img: pokeDb.dataValues.img,
+                    types: pokeDb.dataValues.types.map(e => e.dataValues.name),
                 }
                 // console.log(pokeDb.dataValues.types)
                 res.send(pokeData)
@@ -87,9 +88,8 @@ router.get('/:id', async (req, res) => {
                                 defense: pokemon.data.stats.find(e => e.stat.name === 'defense').base_stat,
                                 speed: pokemon.data.stats.find(e => e.stat.name === 'speed').base_stat,
                                 types: pokemon.data.types.map(e => e.type.name),
-                                img: pokemon.data.sprites.front_default,
+                                img: pokemon.data.sprites.other.home.front_default,
                             }
-            // console.log(typeof id)
            res.send(pokeData)
             
         } catch (e) {
@@ -113,6 +113,7 @@ router.get('/:id', async (req, res) => {
                                 attack: pokeDb.dataValues.attack,
                                 defense: pokeDb.dataValues.defense,
                                 speed: pokeDb.dataValues.speed,
+                                img: pokeDb.dataValues.img,
                                 types: pokeDb.dataValues.types.map(e => e.dataValues.name),
                             };
             // console.log(pokeDb.dataValues)
@@ -133,6 +134,7 @@ router.post('', async (req, res) => {
         attack,
         defense,
         speed,
+        img,
         type} = req.body;
      
     if(!name) return res.status(400).send('Name must be filled');
@@ -145,6 +147,7 @@ router.post('', async (req, res) => {
         attack,
         defense,
         speed,
+        img,
     })
 
     let typesDb = await Type.findAll({

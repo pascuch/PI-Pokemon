@@ -2,12 +2,12 @@ const axios = require('axios');
 
 const getApiInfo = async () => {
     const allPoke = []
-    const limit = 40
+    const limit = 20 
 
     const apiUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
     const apiInfo = await apiUrl.data.results.map(e => {
         return e.url
-    })
+    }) 
     
     async function subRequest(url) {
         const pokeApi = await axios.get(url);
@@ -23,7 +23,7 @@ const getApiInfo = async () => {
                             defense: pokeInfo.stats.find(e => e.stat.name === 'defense').base_stat,
                             speed: pokeInfo.stats.find(e => e.stat.name === 'speed').base_stat,
                             types: pokeInfo.types.map(e => e.type.name),
-                            img: pokeInfo.sprites.front_default,
+                            img: pokeInfo.sprites.other.home.front_default,
                             createdInDb: false
                         }
         

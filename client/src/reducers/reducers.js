@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 const initialState = {
     pokemons: [],
     filteredPokemons: [],
-    types: []
+    types: [],
+    pokemonDetail: {}
   };
 
 export default function rootReducer(state = initialState, action) {
@@ -92,12 +93,24 @@ export default function rootReducer(state = initialState, action) {
           })
         }
       }
-      
       return {
         ...state,
         filteredPokemons: sort()
-      }
-        
+        }
+      case 'GET_POKEMON_BY_NAME':
+        return {
+          ...state,
+          filteredPokemons: [action.payload]
+        }
+      case 'POST_POKEMON':
+        return {
+          ...state,
+        }
+      case 'GET_POKEMON_DETAIL':
+        return {
+          ...state,
+          pokemonDetail: action.payload
+        }
       
       default: return state;
       }

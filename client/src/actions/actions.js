@@ -8,19 +8,11 @@ export function getAllPokemons() {
     }
 }
 
-export function getPokemonById(id) {
+export function getPokemonDetail(id) {
     return function(dispatch) {
         return fetch(`http://localhost:3001/pokemons/${id}`)
                 .then(r => r.json())
-                .then(data => dispatch({type: 'GET_POKEMON_ID', payload: data}))
-    }
-}
-
-export function getPokemonByName(name) {
-    return function(dispatch) {
-        return fetch(`http://localhost:3001/pokemons?name=${name}`)
-                .then(r => r.json())
-                .then(data => dispatch({type: 'GET_POKEMON_NAME', payload: data}))
+                .then(data => dispatch({type: 'GET_POKEMON_DETAIL', payload: data}))
     }
 }
 
@@ -53,4 +45,23 @@ export function sortByName(payload) {
     }
 }
 
-// export function createPokemon()
+export function searchByName(name) {
+    return function(dispatch) {
+            return fetch(`http://localhost:3001/pokemons?name=${name}`)
+                    .then(r => r.json())
+                    .then(data => dispatch({type: 'GET_POKEMON_BY_NAME', payload: data}))
+                    .catch(e => dispatch({type: 'GET_POKEMON_BY_NAME', payload: {error: `Couldn't find any pokemon with the name "${name}"`}}))
+    }
+}
+
+export function postPokemon(payload) {
+    return async function(dispatch) {
+        const pokemon = await axios.post('http://localhost:3001/pokemons', payload)
+        // console.log('PAYLOAD: ', payload)
+        // console.log('RESPONSE: ', pokemon)
+        return dispatch({
+            type: 'POST_POKEMON',
+            payload: pokemon
+        })
+    }
+}
