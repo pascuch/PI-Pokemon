@@ -62,12 +62,14 @@ export default function Home() {
     // console.log(allPokemons)
 
     return (
-        <div className="App">
+        <div className={styles.home}>
             <div className={styles.nav}>
                 <div>
                     <img className={styles.logo} src={logo} />
                 </div>
               
+                <div className={styles.container}>
+                    <Link to='/create'><button className={styles.create} >Create</button></Link>
                 <div>
                     <select className={styles.sort} onChange={e => handleSort(e)}>
                         <option value={'All Pokemons'}>Order By</option>
@@ -89,12 +91,12 @@ export default function Home() {
                             )
                         })}
                     </select>
-                </div>
-                <div className={styles.container}>
-                    <Link to='/create'><button className={styles.create} >Create Pokemon</button></Link>
-                    <SearchBar />
+                    </div>
                     <button className={styles.reload} onClick={e => handleReload(e)}>Reload</button>
                 </div>
+                
+                    <SearchBar />
+                    
                 <Pages 
                     pokemonsPerPage={pokemonsPerPage}
                     allPokemons={allPokemons.length}

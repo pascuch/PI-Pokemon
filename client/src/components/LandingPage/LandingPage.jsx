@@ -7,7 +7,7 @@ export default function LandingPage() {
         <div className={styles.landing}>
             <h1>THE POKEMON FEST</h1>
             <Link to={'/home'}>
-                <button className={styles.button}><a>Join the party!</a></button>
+                <button className={styles.button}>Join the party!</button>
             </Link>
         </div>
     )

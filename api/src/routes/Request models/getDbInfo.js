@@ -26,7 +26,7 @@ const getDbInfo = async () => {
                }
     })
 
-    console.log(infoDb)
+    // console.log(infoDb)
     return infoDb
 }
 

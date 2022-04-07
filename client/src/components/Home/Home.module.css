@@ -1,20 +1,46 @@
+.home {
+    text-align: center;
+   
+}
+
+.home::before {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    display: block;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../LandingPage/Landing\ img.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .nav {
-    background-color: #0077B6;
+    background-color: #0076b6d0;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 500;
+    backdrop-filter: blur(4px);
     /* border-radius: 0px 0px 30px 30px; */
 }
 
 .sort {
     font-size: 1rem;
-    /* border: none; */
+    border: none;
     border-radius: 8px 0px 0px 8px;
     padding-left: 5px;
     padding-right: 5px;
     height: 28px;
+    margin-right: 2px;
+    font-weight: bold;
 }
 .sort:hover {
     cursor: pointer;
@@ -26,7 +52,10 @@
     padding-left: 5px;
     padding-right: 5px;
     height: 28px;
-    /* border: none; */
+    border: none;
+    margin-right: 2px;
+    font-weight: bold;
+
 }
 .origin:hover {
     cursor: pointer;
@@ -34,11 +63,13 @@
 
 .type {
     font-size: 1rem;
-    /* border: none; */
+    border: none;
     border-radius: 0px 8px 8px 0px;
     padding-left: 5px;
     padding-right: 5px;
     height: 28px;
+    font-weight: bold;
+
 }
 .type:hover {
     cursor: pointer;
@@ -55,9 +86,13 @@
     font-size: 1rem;
     padding-left: 10px;
     padding-right: 10px;
+    transition: transform .3s;
+
 }
 .create:hover {
-    background-color: #023b86d7;
+    background-color: #023b86ab;
+    transform: scale(1.1);
+    transition: transform .3s;
 }
 
 .reload {
@@ -71,9 +106,13 @@
     font-size: 1rem;
     padding-left: 10px;
     padding-right: 10px;
+    transition: transform .3s;
+
 }
 .reload:hover {
-    background-color: #023b86d7;
+    background-color: #023b86b0;
+    transform: scale(1.1);
+    transition: transform .3s;
 }
 
 .logo {
@@ -85,5 +124,6 @@
     justify-content: center;
     align-items: flex-start;
     gap: 30px;
-    margin-top: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

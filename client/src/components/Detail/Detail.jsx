@@ -24,7 +24,8 @@ export default function Detail(props) {
     
     
     return (
-        <div className="App">
+        <div className={styles.container}>
+            <button className={styles.button} onClick={() => navigate(-1)}>Back</button>
             <div className={styles.detail}>
                 <div className={styles.main}>
                     <img width={200} height={200} src={pokemon.img} alt='img' />
@@ -62,7 +63,7 @@ export default function Detail(props) {
                     </div>
                 </div>
             </div>
-            <button className={styles.button} onClick={() => navigate(-1)}>Back</button>
+            
         </div>
     )
 

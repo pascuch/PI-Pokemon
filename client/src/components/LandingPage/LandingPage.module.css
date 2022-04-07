@@ -16,12 +16,13 @@
 
 .button {
     font-family: 'Pokemon solid', sans-serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     background-color: transparent;
     border: none;
     transition: transform .3s;
-    color: rgb(0, 0, 156);
+    color: rgb(50, 50, 153);
     text-shadow: 3px 0px 15px yellow;
+    /* margin: 1000px; */
 }
 .button:hover {
     transform: scale(1.2);
