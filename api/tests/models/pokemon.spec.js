@@ -18,5 +18,7 @@ describe('Pokemon model', () => {
         Pokemon.create({ name: 'Pikachu' });
       });
     });
+
   });
 });
+

@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const getApiInfo = async () => {
     const allPoke = []
-    const limit = 10; 
+    const limit = 20; 
 
     const apiUrl = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
     const apiInfo = await apiUrl.data.results.map(e => {

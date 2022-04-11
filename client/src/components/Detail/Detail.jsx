@@ -47,7 +47,7 @@ export default function Detail(props) {
                     <div className={styles.statistics}>
                         <div>
                             <h4>Life: {pokemon.hp}</h4>
-                            <h4>Strength: {pokemon.attack}</h4>
+                            <h4>Attack: {pokemon.attack}</h4>
                         </div>
                         <div>
                             <h4>Defense: {pokemon.defense}</h4>

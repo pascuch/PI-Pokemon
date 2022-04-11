@@ -66,11 +66,13 @@ export default function CreatePokemon() {
 
     function handleSelect(e) {
         e.preventDefault();
-        if(!input.type.find(el => el === e.target.value)){
+        if(!input.type.find(el => el === e.target.value) && e.target.value){
         setInput({
             ...input,
             type: [...input.type, e.target.value]
         })}
+
+        e.target.value = ''
     }
 
     function handleDelete(el) {
@@ -222,7 +224,7 @@ export default function CreatePokemon() {
                             <div className={styles.box}>
                                 <label className={styles.label}>Types</label>
                                 <select className={styles.select} name='types' onChange={e => handleSelect(e)}>
-                                    <option>Select type</option>
+                                    <option value=''>Select type</option>
                                     {allTypes?.map(e => {
                                         return (
                                             <option 
