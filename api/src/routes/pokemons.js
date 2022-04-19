@@ -120,7 +120,7 @@ router.get('/:id', async (req, res) => {
             res.send(pokeData)
             
         } catch (e) {
-            res.status(400).send(`Can't find any pokemon with the ID "${id}"`)
+            res.status(400).send(`Couldn't find any pokemon with the ID "${id}"`)
         }
 
     }

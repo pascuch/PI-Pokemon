@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {useState, useEffect} from "react";
+// import { Link } from "react-router-dom";
+import { useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import { getPokemonDetail } from "../../actions/actions";
 import { useParams, useNavigate } from 'react-router-dom';

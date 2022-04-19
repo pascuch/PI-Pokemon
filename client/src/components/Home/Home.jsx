@@ -1,8 +1,8 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getAllPokemons, getAllTypes, filterByType, filterByOrigin, sortByName } from "../../actions/actions";
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllPokemons, getAllTypes, filterByType, filterByOrigin, sortByName, filterBy99 } from "../../actions/actions";
 import Card from "../Card/Card";
 import CardsGrid from "../CardsGrid/CardsGrid";
 import Pages from "../Pages/Pages";
@@ -14,6 +14,8 @@ export default function Home() {
     const dispatch = useDispatch();
     const allPokemons = useSelector(state => state.filteredPokemons)
     const allTypes = useSelector(state => state.types)
+    // const navigate = useNavigate()
+    // const [back, setBack] = useState(false)
 
     const [currentPage, setCurrentPage] = useState(1);
     const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
@@ -27,9 +29,15 @@ export default function Home() {
     }
 
     useEffect(() => {
+        // console.log('Mount: ', allPokemons.length)
+        // console.log('Mount: ', allTypes.length)
+
+        if(!allPokemons.length && !allTypes.length) 
+        {
         dispatch(getAllPokemons())
         dispatch(getAllTypes())
-    }, [])     
+        }
+    }, [])    
 
     function handleReload(e) {
         e.preventDefault();
@@ -65,7 +73,9 @@ export default function Home() {
         <div className={styles.home}>
             <div className={styles.nav}>
                 <div>
-                    <img className={styles.logo} src={logo} />
+                    <Link to='/'>
+                        <img className={styles.logo} src={logo} />
+                    </Link>
                 </div>
               
                 <div className={styles.container}>
@@ -92,7 +102,7 @@ export default function Home() {
                         })}
                     </select>
                     </div>
-                    <button className={styles.reload} onClick={e => handleReload(e)}>Reload</button>
+                    <button className={styles.reload} onClick={e => handleReload(e)}>Reset</button>
                 </div>
                 
                     <SearchBar />

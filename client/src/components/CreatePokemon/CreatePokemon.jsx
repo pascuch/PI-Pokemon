@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTypes, postPokemon } from "../../actions/actions";
 import styles from './CreatePokemon.module.css'
 
 function validate(input) {
+
+
     let errors = {};
     if(!input.name) { errors.name = 'Name is required' };
     if(input.height < 0 || input.height > 200){
@@ -31,6 +33,8 @@ function validate(input) {
 }
 
 export default function CreatePokemon() {
+    let navigate = useNavigate();
+
     const dispatch = useDispatch()
     const allTypes = useSelector(state => state.types)
     const [error, setError] = useState({})
@@ -47,7 +51,7 @@ export default function CreatePokemon() {
     })
 
     useEffect(() => {
-        dispatch(getAllTypes())
+        if(!allTypes.length) dispatch(getAllTypes()) 
     }, []) 
 
     function handleChange(e) {
@@ -101,6 +105,8 @@ export default function CreatePokemon() {
                 speed: 0,
                 type: [],
             })
+        
+            navigate("/home", { replace: true });
         }
     }
 
@@ -244,7 +250,7 @@ export default function CreatePokemon() {
                                 )
                             })}
                         </div> 
-                        <button className={styles.button} type="submit">Create Pokemon</button>
+                        <button className={styles.button} type="submit" >Create Pokemon</button>
                     </form>
                 </div>
             </div>
