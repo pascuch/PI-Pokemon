@@ -9,7 +9,7 @@ export default function Card({img, name, types, id}) {
 
     return (
         <Link className={styles.card} to={`/pokemon/${id}`}>
-            <div >
+            <div>
                 <img width={150} height={150} src={img} alt='img' />
                 <h3>{capitalize(name)}</h3>
                 <div className={styles.types}>
